@@ -1,3 +1,5 @@
 **.DS_Store
-libs/*
 env/*
+grpc/*
+grpc-services/protos/gen-*/*
+grpc-services/protos/vendor/*

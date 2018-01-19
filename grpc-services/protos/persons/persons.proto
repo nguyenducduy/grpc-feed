@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.feed.persons";
+option java_outer_classname = "PersonsProto";
+
+package persons;
+
+message Person {
+  uint32 id = 1;
+  string email = 2;
+  string fullname = 3;
+}
+
+message CreatePersonRequest {
+  string email = 1;
+  string fullname = 2;
+  string password = 3;
+}
+
+message CreatePersonResult {
+  Person person = 1;
+}
+
+message GetPersonsRequest {
+  repeated Person person = 1;
+}
+
+message GetPersonsResult {
+  Person person = 1;
+}
+
+service Persons {
+  rpc CreatePerson (persons.CreatePersonRequest) returns (persons.CreatePersonResult);
+  rpc GetPersons (persons.GetPersonsRequest) returns (stream persons.GetPersonsResult);
+}
