@@ -4,3 +4,6 @@ msgpack-python==0.4.8
 pip==9.0.1
 protobuf==3.4.0
 setuptools==28.8.0
+simplemysql
+Stream-Framework
+cassandra-driver

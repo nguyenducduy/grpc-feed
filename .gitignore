@@ -3,3 +3,4 @@ env/*
 grpc/*
 grpc-services/protos/gen-*/*
 grpc-services/protos/vendor/*
+**.pyc
