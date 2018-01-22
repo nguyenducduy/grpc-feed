@@ -17,8 +17,9 @@ for SERVICE in "${services[@]}"; do
 
     DESTDIR='gen-php'
     mkdir -p $DESTDIR
-    php ./vendor/bin/protobuf \
-        -i . \
-        -o $DESTDIR \
+    protoc --proto_path=$SERVICE/ \
+        --php_out=$DESTDIR \
+        --grpc_out=$DESTDIR \
+        --plugin=protoc-gen-grpc=/usr/local/bin/grpc_php_plugin \
         $SERVICE/*.proto
 done

@@ -13,11 +13,27 @@ class PersonsService(persons_service.PersonsServicer):
 
     def GetPersons(self, request, context):
         print('get persons call')
-        for person in request.person:
+
+        mydict = [
+            {
+                'id': 1,
+                'email': 'duynguyen@gmail.com',
+                'fullname': 'Shirour'
+            },
+            {
+                'id': 2,
+                'email': 'admin@gmail.com',
+                'fullname': 'Admin'
+            }
+        ]
+
+        for person in mydict:
             person = persons_messages.Person(
-                fullname = person.fullname,
-                id = person.id
+                id = person['id'],
+                email = person['email'],
+                fullname = person['fullname']
             )
+
             yield persons_messages.GetPersonsResult(person=person)
 
 def serve():
